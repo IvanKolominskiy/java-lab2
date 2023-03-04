@@ -6,9 +6,9 @@ import java.util.Scanner;
 
 public class FileFunctions {
 
-    public void readFile(String filePath) throws FileNotFoundException {
+    public Scanner openFile(String filePath) throws FileNotFoundException {
         File file = new File(filePath);
 
-        Scanner scanner = new Scanner(file);
+        return new Scanner(file);
     }
 }
