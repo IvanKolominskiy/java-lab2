@@ -2,6 +2,7 @@ package fileProcessing;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class FileFunctions {
@@ -17,6 +18,19 @@ public class FileFunctions {
         }
 
         return sc;
+    }
+
+    public static PrintWriter openFileToWrite(String filePath) throws FileToWriteNotFoundException {
+        File file = new File(filePath);
+        PrintWriter pw;
+
+        try {
+            pw = new PrintWriter(file);
+        } catch (FileNotFoundException e) {
+            throw new FileToWriteNotFoundException();
+        }
+
+        return pw;
     }
 
     public static int[] calculateSymbols(Scanner fileScanner) {
