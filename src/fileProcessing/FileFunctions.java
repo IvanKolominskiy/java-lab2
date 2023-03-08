@@ -7,12 +7,12 @@ import java.util.Scanner;
 
 public class FileFunctions {
 
-    public static Scanner openFileToRead(String filePath) throws FileNotFoundException {
+    public static Scanner openToRead(String filePath) throws FileNotFoundException {
         File file = new File(filePath);
         return new Scanner(file);
     }
 
-    public static PrintWriter openFileToWrite(String filePath) throws FileNotFoundException {
+    public static PrintWriter openToWrite(String filePath) throws FileNotFoundException {
         File file = new File(filePath);
         return new PrintWriter(file);
     }
