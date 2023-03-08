@@ -6,10 +6,17 @@ import java.util.Scanner;
 
 public class FileFunctions {
 
-    public static Scanner openFile(String filePath) throws FileNotFoundException {
+    public static Scanner openFileToRead(String filePath) throws FileToReadNotFoundException {
         File file = new File(filePath);
+        Scanner sc;
 
-        return new Scanner(file);
+        try {
+            sc = new Scanner(file);
+        } catch (FileNotFoundException e) {
+            throw new FileToReadNotFoundException();
+        }
+
+        return sc;
     }
 
     public static int[] calculateSymbols(Scanner fileScanner) {
