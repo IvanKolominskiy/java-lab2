@@ -14,12 +14,15 @@ public class Main {
         System.out.println("Input the path to the file to write");
         String fileToWritePath = in.nextLine();
 
-        try(Scanner fileScanner = FileFunctions.openToRead(fileToReadPath);
-            PrintWriter filePrintWriter = FileFunctions.openToWrite(fileToWritePath)) {
+        try (Scanner fileScanner = FileFunctions.openToRead(fileToReadPath)) {
             int[] result = FileFunctions.calculateSymbols(fileScanner);
 
-            filePrintWriter.println("Amount of small letters: " + result[0] +
-                                    "\nAmount of large letters: " + result[1]);
+            try (PrintWriter filePrintWriter = FileFunctions.openToWrite(fileToWritePath)) {
+                filePrintWriter.println("Amount of small letters: " + result[0] +
+                                        "\nAmount of large letters: " + result[1]);
+            } catch (FileNotFoundException e) {
+                System.out.println("The file was not found and could not be created!");
+            }
         } catch (FileNotFoundException e) {
             System.out.println("File for reading not found!");
         }
