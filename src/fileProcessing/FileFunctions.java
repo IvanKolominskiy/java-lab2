@@ -7,30 +7,14 @@ import java.util.Scanner;
 
 public class FileFunctions {
 
-    public static Scanner openFileToRead(String filePath) throws FileToReadNotFoundException {
+    public static Scanner openFileToRead(String filePath) throws FileNotFoundException {
         File file = new File(filePath);
-        Scanner sc;
-
-        try {
-            sc = new Scanner(file);
-        } catch (FileNotFoundException e) {
-            throw new FileToReadNotFoundException();
-        }
-
-        return sc;
+        return new Scanner(file);
     }
 
-    public static PrintWriter openFileToWrite(String filePath) throws FileToWriteNotFoundException {
+    public static PrintWriter openFileToWrite(String filePath) throws FileNotFoundException {
         File file = new File(filePath);
-        PrintWriter pw;
-
-        try {
-            pw = new PrintWriter(file);
-        } catch (FileNotFoundException e) {
-            throw new FileToWriteNotFoundException();
-        }
-
-        return pw;
+        return new PrintWriter(file);
     }
 
     public static int[] calculateSymbols(Scanner fileScanner) {
