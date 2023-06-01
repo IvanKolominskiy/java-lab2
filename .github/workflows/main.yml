@@ -21,6 +21,13 @@ jobs:
           java-version: '17'
       - name: Build
         run: mvn --batch-mode --update-snapshots package
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: java_lab2
+          path: /target
+          retention-days: 7
+        
           
       
       
