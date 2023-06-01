@@ -1,4 +1,6 @@
-import fileProcessing.FileFunctions;
+package main.java;
+
+import main.java.fileProcessing.FileFunctions;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;

@@ -1,4 +1,4 @@
-package fileProcessing;
+package main.java.fileProcessing;
 
 import java.io.File;
 import java.io.FileNotFoundException;
